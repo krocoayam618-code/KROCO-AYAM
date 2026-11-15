@@ -2,43 +2,130 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KROCO AYAM - TOPUP APP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>KROCO AYAM - GAMES & VOUCHERS</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#f5f5f5}
-.topbar{background:#ee4d2d;color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.topbar b{font-size:18px}
-.banner{margin:12px;background:linear-gradient(135deg,#ee4d2d,#ff8c00);border-radius:16px;padding:20px;color:#fff}
-.banner h2{font-size:22px}
-.banner p{font-size:14px;opacity:.9;margin-top:4px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:12px}
-.card{background:#fff;border-radius:20px;box-shadow:0 4px 14px #0001;overflow:hidden;text-align:center}
-.card .img{height:160px;display:flex;align-items:center;justify-content:center;font-size:70px}
-.card b{display:block;padding:12px;font-size:15px}
-.pay{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 -2px 10px #0002}
-.pay button{background:#ee4d2d;color:#fff;border:0;padding:12px 22px;border-radius:12px;font-weight:800;font-size:16px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,sans-serif}
+body{background:#f7f7f8}
+.header{padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #eee}
+.header b{font-size:18px}
+.tabs{display:flex;gap:12px;padding:12px 20px;background:#fff;overflow:auto}
+.tabs span{padding:8px 16px;background:#f0f0f0;border-radius:20px;font-size:13px;white-space:nowrap;cursor:pointer}
+.tabs .active{background:#111;color:#fff}
+.section{padding:18px 20px}
+.section h3{font-size:16px;margin-bottom:12px;font-weight:700}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#e8f5e9;border-radius:16px;height:155px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:.15s}
+.card:hover{transform:scale(1.03);box-shadow:0 6px 18px #0002}
+.card .ico{font-size:38px}
+.card b{margin-top:8px;font-size:12px}
+.banner{margin:10px 20px;background:linear-gradient(90deg,#ff2e2e,#ff8a00);color:#fff;padding:14px 18px;border-radius:12px;display:flex;justify-content:space-between}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 -4px 20px #0002;z-index:20}
+.cart button{background:#0066ff;color:#fff;border:0;padding:12px 24px;border-radius:12px;font-weight:800}
+.modal{display:none;position:fixed;inset:0;background:#0007;z-index:50;align-items:center;justify-content:center;padding:16px}
+.box{background:#fff;border-radius:20px;width:100%;max-width:420px;padding:20px;max-height:90vh;overflow:auto}
+.row{display:flex;justify-content:space-between;padding:7px 0;font-size:14px}
+.payopt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.payopt div{border:2px solid #eee;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:700;font-size:13px}
+.payopt .active{border-color:#0066ff;background:#eef4ff}
+.total{border-top:1px dashed #ddd;margin-top:8px;padding-top:10px;font-weight:800;font-size:16px}
+.btnPay{width:100%;background:#0066ff;color:#fff;border:0;padding:14px;border-radius:12px;margin-top:14px;font-weight:800;font-size:15px}
+.copy{font-size:11px;background:#111;color:#fff;padding:4px 8px;border-radius:6px;cursor:pointer;margin-left:8px}
 </style>
 </head>
 <body>
-<div class="topbar"><b>🔥 KROCO AYAM</b><span>🛒</span></div>
-<div class="banner">
-<h2>Topup Termurah!</h2>
-<p>Bayar pakai ShopeePay - Proses 1 Detik - 24 Jam</p>
-<p style="margin-top:8px;background:#fff;color:#ee4d2d;display:inline-block;padding:4px 10px;border-radius:20px;font-weight:800;font-size:12px">BONUS DIAMOND 10%</p>
+<div class="header"><b>🎮 Games & Vouchers</b><span>🔍 👤</span></div>
+<div class="tabs"><span>Game Populer</span><span>Top Up Games</span><span>Voucher</span><span class="active">Topup</span></div>
+
+<div class="section"><h3>Game Populer</h3>
+<div class="grid3">
+<div class="card" onclick="add('Google Play',50000)"><div class="ico">▶️</div><b>Google Play</b></div>
+<div class="card" style="background:#e3f2fd" onclick="add('eFootball',35000)"><div class="ico">⚽</div><b>eFootball</b></div>
+<div class="card" style="background:#e3f2fd" onclick="add('PlayStation',80000)"><div class="ico">🎮</div><b>PlayStation Store</b></div>
+</div></div>
+
+<div class="section"><h3>Topup & Isi Ulang - GEDE</h3>
+<div class="grid3">
+<div class="card" style="background:#fff3e0" onclick="add('Free Fire 70 Diamond',12000)"><div class="ico">🔥</div><b>Free Fire</b></div>
+<div class="card" style="background:#e8f5ff" onclick="add('MLBB 86 Diamond',20000)"><div class="ico">⚔️</div><b>Mobile Legends</b></div>
+<div class="card" style="background:#f3e5f5" onclick="add('PUBG 60 UC',15000)"><div class="ico">🪖</div><b>PUBG Mobile</b></div>
+</div></div>
+
+<div class="banner"><span>Promo Hemat Saldo s.d 1000 ShopeePay</span><b>ShopeePay</b></div>
+
+<div class="section"><h3>Voucher Game</h3>
+<div class="grid3">
+<div class="card" style="background:#e0f7fa" onclick="add('Steam Wallet 60K',60000)"><div class="ico">💎</div><b>Steam</b></div>
+<div class="card" style="background:#fffde7" onclick="add('Roblox 400 Robux',50000)"><div class="ico">🧱</div><b>Roblox</b></div>
+<div class="card" style="background:#fce4ec" onclick="add('Valorant 125 VP',15000)"><div class="ico">🎯</div><b>Valorant</b></div>
+</div></div>
+
+<div style="height:90px"></div>
+<div class="cart"><div><small id="cnt">0 Game</small><br><b id="totalMini">Rp 0</b></div><button onclick="openCart()">Checkout 🛒</button></div>
+
+<div class="modal" id="modal">
+<div class="box">
+<h3>🛒 Keranjang KROCO AYAM</h3>
+<div id="list" style="margin-top:12px"></div>
+<div style="margin-top:12px;background:#f6f7ff;padding:12px;border-radius:12px">
+<div class="row"><span>Subtotal</span><span id="sub">Rp 0</span></div>
+<div class="row"><span>Pajak PPN 11%</span><span id="pajak">Rp 0</span></div>
+<div class="row"><span>Biaya Layanan</span><span>Rp 1.500</span></div>
+<div class="row total"><span>Total Bayar</span><span id="total">Rp 0</span></div>
 </div>
-<div class="grid">
-<div class="card" onclick="order('Free Fire')"><div class="img" style="background:linear-gradient(135deg,#ff9500,#ff2d00)">🔥</div><b>Free Fire</b></div>
-<div class="card" onclick="order('Mobile Legends')"><div class="img" style="background:linear-gradient(135deg,#00c6ff,#0072ff)">⚔️</div><b>Mobile Legends</b></div>
-<div class="card" onclick="order('PUBG Mobile')"><div class="img" style="background:linear-gradient(135deg,#ffde00,#ff3d00)">🎯</div><b>PUBG Mobile</b></div>
-<div class="card" onclick="order('Valorant')"><div class="img" style="background:linear-gradient(135deg,#ff5a8a,#8a4dff)">🎮</div><b>Valorant</b></div>
-<div class="card" onclick="order('Genshin Impact')"><div class="img" style="background:linear-gradient(135deg,#a8ffdb,#78aaff)">✨</div><b>Genshin Impact</b></div>
-<div class="card" onclick="order('Roblox')"><div class="img" style="background:linear-gradient(135deg,#d4ff00,#8cff00)">🧱</div><b>Roblox</b></div>
+
+<p style="margin-top:14px;font-weight:700">Pilih Pembayaran - 4 E-Wallet + SeaBank</p>
+<div class="payopt">
+<div id="p1" class="active" onclick="pilih('ShopeePay')">🧡<br>ShopeePay</div>
+<div id="p2" onclick="pilih('GoPay')">💙<br>GoPay</div>
+<div id="p3" onclick="pilih('OVO')">💜<br>OVO</div>
+<div id="p4" onclick="pilih('DANA')">💙<br>DANA</div>
 </div>
-<div style="height:80px"></div>
-<div class="pay"><div><small>Metode:</small><br><b>ShopeePay 🧡</b></div><button onclick="order('Topup')">Checkout</button></div>
+<div id="p5" onclick="pilih('SeaBank')" style="border:2px solid #eee;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:700;margin-top:10px"><span>🏦 SeaBank - A/N Achmad Subarkah</span><br><small id="noRek" style="font-size:12px">9011 36981934 - GANTI NOMOR LO DISINI</small> <span class="copy" onclick="copyRek()">COPY</span></div>
+
+<div style="background:#fff8e1;padding:10px;border-radius:10px;margin-top:12px;font-size:12px">
+<b>Rekening Tujuan:</b><br>
+• ShopeePay / GoPay / OVO / DANA : 087775709664<br>
+• SeaBank : <b>9011 36981934 A/N ACHMAD SUBARKAH</b> - edit di kode<br>
+<small style="color:#888">Ganti nomor di baris 110 kode HTML ya bosq</small>
+</div>
+
+<button class="btnPay" onclick="bayar()">Bayar Sekarang - <span id="metode">ShopeePay</span></button>
+<button style="width:100%;margin-top:8px;padding:10px;border-radius:10px;border:0;background:#eee" onclick="closeCart()">Tutup</button>
+</div>
+</div>
+
 <script>
-function order(g){location.href='https://wa.me/6283872363213?text=Halo%20KROCO%20AYAM%2C%20mau%20topup%20'+g+'%20via%20ShopeePay'}
+let cart=[],metode='ShopeePay';
+function add(n,h){cart.push({n,h});upd();openCart()}
+function upd(){
+ let sub=0,html='';cart.forEach(c=>{sub+=c.h;html+=`<div class=row><span>${c.n}</span><span>Rp ${c.h.toLocaleString()}</span></div>`});
+ document.getElementById('list').innerHTML=html||'Kosong';
+ let pajak=Math.round(sub*0.11),admin=1500,total=sub+pajak+admin;
+ document.getElementById('sub').innerText='Rp '+sub.toLocaleString();
+ document.getElementById('pajak').innerText='Rp '+pajak.toLocaleString();
+ document.getElementById('total').innerText='Rp '+total.toLocaleString();
+ document.getElementById('totalMini').innerText='Rp '+total.toLocaleString();
+ document.getElementById('cnt').innerText=cart.length+' Game';
+ window._data={sub,pajak,admin,total};
+}
+function openCart(){document.getElementById('modal').style.display='flex'}
+function closeCart(){document.getElementById('modal').style.display='none'}
+function pilih(p){
+ metode=p;
+ document.querySelectorAll('.payopt div').forEach(d=>d.classList.remove('active'));
+ document.getElementById('p5').style.borderColor='#eee';
+ if(p=='SeaBank'){document.getElementById('p5').style.borderColor='#0066ff';document.getElementById('p5').style.background='#eef4ff'}
+ else{let m={ShopeePay:'p1',GoPay:'p2',OVO:'p3',DANA:'p4'};document.getElementById(m[p]).classList.add('active')}
+ document.getElementById('metode').innerText=p;
+}
+function copyRek(){navigator.clipboard.writeText('901136981934');alert('No SeaBank dicopy! Ganti dulu di kode ya bosq')}
+function bayar(){
+ if(!cart.length)return alert('Keranjang kosong');
+ let txt=`Halo KROCO AYAM%0AOrder:%0A`;cart.forEach(c=>txt+=`- ${c.n} Rp ${c.h}%0A`);
+ txt+=`%0ASubtotal: Rp ${window._data.sub}%0APajak 11%: Rp ${window._data.pajak}%0AAdmin: Rp ${window._data.admin}%0ATOTAL: Rp ${window._data.total}%0AMetode: ${metode}%0A%0ASeaBank A/N Achmad Subarkah`;
+ window.open('https://wa.me/6283872363213?text='+txt,'_blank');
+}
 </script>
 </body>
 </html>
